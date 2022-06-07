@@ -18,7 +18,7 @@ export default class Chat extends Component {
       },
     };
 
-    // Dadabase credentials
+    // Database credentials
     const firebaseConfig = {
       apiKey: "AIzaSyDsVJRvLSKhctnMlbQuY0dhx-XBEXDZL2M",
       authDomain: "thechatapp-869c0.firebaseapp.com",
@@ -36,7 +36,7 @@ export default class Chat extends Component {
   }
 
   componentDidMount() {
-    // set page title, once page is loded
+    // set the page title, once page is loaded
     this.props.navigation.setOptions({ title: this.props.route.params.username });
 
     // reference to the firestore messages collection
@@ -60,17 +60,17 @@ export default class Chat extends Component {
         },
       });
 
-      // listen for update in the collection
+      // listen for updates to the collection
       this.unsubscribe = this.referenceChatMessages
         .orderBy("createdAt", "desc")
         .onSnapshot(this.onCollectionUpdate);
     });
   }
 
-  // when update occurred, set messages state with current data
+  // when an update happens, set messages state with the current data
   onCollectionUpdate = (querySnapshot) => {
     const messages = [];
-    // go through each document
+    // for each loops through each document
     querySnapshot.forEach((doc) => {
       // get the QueryDocumentSnapshot's data
       let data = doc.data();
@@ -91,7 +91,7 @@ export default class Chat extends Component {
     });
   };
 
-  // unsubscriebe from collection updates
+  // unsubscribe from collection updates
   componentWillUnmount() {
     this.unsubscribe();
     this.authUnsubscribe();
@@ -122,7 +122,7 @@ export default class Chat extends Component {
     });
   }
 
-  // function to render grafic design for message styling
+  // function which renders message style
   renderBubble(props) {
     return (
       <Bubble

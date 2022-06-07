@@ -36,7 +36,7 @@ export default class Start extends Component {
       <View style={styles.container}>
         <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
           <View style={styles.titleBox}>
-            <Text style={styles.title}>ChatMe</Text>
+            <Text style={styles.title}>TheChatApp</Text>
           </View>
           <View style={styles.startBox}>
             <View style={styles.textBox}>
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     fontWeight: "300",
-    color: "#757083",
+    color: "black",
     opacity: 0.5,
   },
   themeBox: {
