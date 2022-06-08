@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import {
   ImageBackground,
   StyleSheet,
@@ -8,12 +9,14 @@ import {
   TextInput,
   Pressable,
   TouchableOpacity,
+  LogBox,
 } from "react-native";
 
 export default class Start extends Component {
   constructor(props) {
     super(props);
     this.state = { username: "", backgroundColor: "white" };
+    LogBox.ignoreAllLogs(); //Ignore all log notifications
   }
 
   changeBackgroundColor = (newColor) => {
@@ -36,7 +39,7 @@ export default class Start extends Component {
       <View style={styles.container}>
         <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
           <View style={styles.titleBox}>
-            <Text style={styles.title}>TheChatApp</Text>
+            <Text style={styles.title}>ChatMe</Text>
           </View>
           <View style={styles.startBox}>
             <View style={styles.textBox}>
@@ -161,7 +164,7 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 16,
     fontWeight: "300",
-    color: "black",
+    color: "#757083",
     opacity: 0.5,
   },
   themeBox: {
