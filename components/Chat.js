@@ -4,6 +4,8 @@ import NetInfo from "@react-native-community/netinfo";
 import { StyleSheet, View, Platform, KeyboardAvoidingView, LogBox } from "react-native";
 import { GiftedChat, Bubble, InputToolbar } from "react-native-gifted-chat";
 
+import { connectActionSheet } from '@expo/react-native-action-sheet';
+
 // import action button and actions
 import CustomActions from "./CustomActions";
 
@@ -14,7 +16,7 @@ import MapView from "react-native-maps";
 const firebase = require("firebase");
 require("firebase/firestore");
 
-export default class Chat extends Component {
+class Chat extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -285,3 +287,8 @@ export default class Chat extends Component {
 
 // Styling section start:
 const styles = StyleSheet.create({});
+
+
+const ConnectedApp = connectActionSheet(Chat);
+
+export default ConnectedApp;

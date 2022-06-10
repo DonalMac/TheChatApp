@@ -7,6 +7,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Start from "./components/Start";
 import Chat from "./components/Chat";
 
+import { ActionSheetProvider } from '@expo/react-native-action-sheet';
+
 // Create the navigator
 const Stack = createStackNavigator();
 
@@ -17,12 +19,16 @@ export default class App extends Component {
 
   render() {
     return (
+
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Start">
-          <Stack.Screen name="Start" component={Start} />
-          <Stack.Screen name="Chat" component={Chat} />
-        </Stack.Navigator>
+        <ActionSheetProvider>
+          <Stack.Navigator initialRouteName="Start">
+            <Stack.Screen name="Start" component={Start} />
+            <Stack.Screen name="Chat" component={Chat} />
+          </Stack.Navigator>
+        </ActionSheetProvider>
       </NavigationContainer>
+
     );
   }
 }

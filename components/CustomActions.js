@@ -6,10 +6,12 @@ import PropTypes from "prop-types";
 import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 import * as Location from "expo-location";
+
+
 // import MapView from "react-native-maps";
 
 import firebase from "firebase";
-import firestore from "firebase";
+// import firestore from "firebase";
 
 export default class CustomActions extends Component {
   // Let the user pick an image from the device's image library @function imagePicker @async
@@ -104,13 +106,15 @@ export default class CustomActions extends Component {
   };
 
   // function that handles communication features @function onActionPress
-  onActionPress = () => {
+  _onOpenActionSheet = () => {
     const options = ["Choose From Library", "Take Picture", "Send Location", "Cancel"];
-    const cancelButtonIndex = options.length - 1;
-    this.context.actionSheet().showActionSheetWithOptions(
+    const destructiveButtonIndex = 0;
+    const cancelButtonIndex = 2;
+    this.props.showActionSheetWithOptions(
       {
         options,
         cancelButtonIndex,
+        destructiveButtonIndex,
       },
       async (buttonIndex) => {
         switch (buttonIndex) {
@@ -151,7 +155,7 @@ export default class CustomActions extends Component {
         accessibilityLabel="More options"
         accessibilityHint="Let’s you choose to send an image or your geolocation."
         style={[styles.container]}
-        onPress={this.onActionPress}
+        onPress={this._onOpenActionSheet}
       >
         <View style={[styles.wrapper, this.props.wrapperStyle]}>
           <Text style={[styles.iconText, this.props.iconTextStyle]}>+</Text>
@@ -187,5 +191,5 @@ const styles = StyleSheet.create({
 });
 
 CustomActions.contextTypes = {
-  actionSheet: PropTypes.func,
+  _onOpenActionSheet: PropTypes.func,
 };
