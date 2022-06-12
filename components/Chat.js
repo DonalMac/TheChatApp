@@ -68,7 +68,7 @@ export default class Chat extends Component {
   }
 
   componentDidMount() {
-    // set page title, once page is loded
+    // set page title, once page is loaded
     this.props.navigation.setOptions({ title: this.props.route.params.username });
 
     // An app must be online to access Google Firebase, offline users can't be authenticated
@@ -140,7 +140,7 @@ export default class Chat extends Component {
     this.saveMessages();
   };
 
-  // unsubscriebe from collection updates
+  // unsubscribe from collection updates
   componentWillUnmount() {
     if (this.state.amIConnected == true) {
       this.unsubscribe();
@@ -148,7 +148,7 @@ export default class Chat extends Component {
     }
   }
 
-  // callback function used to add messages to current chat window and save it in firebase messages collection database
+  // callback function used to add messages to current chat window and save them to firebase messages collection database
   onSend(messages = []) {
     this.setState(
       (previousState) => ({
@@ -189,7 +189,7 @@ export default class Chat extends Component {
     });
   }
 
-  // To delete messages in the asyncStirage if needed
+  // To delete messages in the asyncStorage if needed
   async deleteMessages() {
     try {
       await AsyncStorage.removeItem("messages");
@@ -209,7 +209,7 @@ export default class Chat extends Component {
     }
   }
 
-  // function to render grafic design for message styling
+  // function to render bubble styles
   renderBubble(props) {
     return (
       <Bubble

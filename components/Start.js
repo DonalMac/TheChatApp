@@ -39,7 +39,7 @@ export default class Start extends Component {
       <View style={styles.container}>
         <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
           <View style={styles.titleBox}>
-            <Text style={styles.title}>ChatMe</Text>
+            <Text style={styles.title}>The Chat App</Text>
           </View>
           <View style={styles.startBox}>
             <View style={styles.textBox}>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "300",
     color: "#757083",
-    opacity: 0.5,
+
   },
   themeBox: {
     flexDirection: "column",
@@ -189,7 +189,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 40,
     borderWidth: 2,
-    borderColor: "white",
+    borderColor: "grey",
+    padding: 5,
+    margin: 6,
   },
   Circle1Box: {
     flexDirection: "row",
@@ -197,7 +199,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    margin: 2,
+    margin: 3,
+
   },
   Circle2Box: {
     flexDirection: "row",
@@ -205,7 +208,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    margin: 2,
+    margin: 3,
   },
   Circle3Box: {
     flexDirection: "row",
@@ -213,7 +216,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    margin: 2,
+    margin: 3,
   },
   Circle4Box: {
     flexDirection: "row",
@@ -221,7 +224,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    margin: 2,
+    margin: 3,
   },
   buttonBox: {
     flexDirection: "column",
