@@ -1,30 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  Button,
-  Alert,
-  ScrollView,
-} from 'react-native';
-import { useState } from 'react';
-import Start from './components/Start';
-import Chat from './components/Chat';
+import React, { Component } from "react";
+import "react-native-gesture-handler";
+// import react Navigation
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+// import the screens
+import Start from "./components/Start";
+import Chat from "./components/Chat";
 
-import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+// Create the navigator
+const Stack = createStackNavigator();
 
-export default function App() {
-  const Stack = createStackNavigator();
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Start">
-        <Stack.Screen name="Start" component={Start} />
-        <Stack.Screen name="Chat" component={Chat} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Start">
+          <Stack.Screen name="Start" component={Start} />
+          <Stack.Screen name="Chat" component={Chat} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+  }
 }
